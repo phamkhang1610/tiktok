@@ -1,0 +1,68 @@
+.wrapper{
+    --search-boder-radius:92px;
+    --search-height: 46px;
+    --search-top-spacer:9px;
+    --search-button-width: 52px;
+
+    height: var(--default-layout-height);
+    width: 100%;
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    display: flex;
+    justify-content: center;
+}
+.inner {
+    height: 100%;
+    width: var(--default-layout-width);
+   // background-color: #ccc;
+   display:flex;
+   align-items: center; // chỉnh về giữa theo chiều dọc
+   justify-content: space-between;
+}
+.logo {
+    display: flex;
+    cursor: pointer;
+   
+}
+
+.action {
+   display: flex;
+   align-items: center;
+}
+.more-btn {
+    font-size: 2rem;
+    margin-left: 12px;
+    background: transparent;
+    padding: 5px 8px;
+    margin-bottom: -8px;
+    display: inline;
+    align-items: center;
+    justify-content: center;
+
+}
+.action-but {
+    color: var(--primary);
+    font-size: 2.3rem;
+    background-color: transparent;
+    padding: 4px 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+// .current-user {
+//     display: inline-block;
+//     align-items: center;
+//     justify-content: center;
+// }
+//tippy -box
+body{
+
+.tippy-box {
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+    background-color: rgba(84, 84, 84, 0.92);
+}
+}
+//Menu
