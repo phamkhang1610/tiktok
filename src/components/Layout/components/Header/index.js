@@ -3,7 +3,8 @@ import classNames from 'classnames/bind';
 import { BiPlus,BiLogOut } from "react-icons/bi";
 import { BsCoin,BsFillPersonFill } from "react-icons/bs";
 import { BsTranslate,BsQuestionCircle,BsKeyboard,BsMoon,BsThreeDotsVertical } from "react-icons/bs";
-import { MdSettings } from "react-icons/md"
+import { MdSettings } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 // thư viện tippy
 
@@ -95,13 +96,13 @@ function Header() {
 
     return ( <header className= {cx('wrapper')}> 
         <div className={cx('inner')}>
-            <div className={cx('logo')}>
+            <Link to = {'/'} className={cx('logo')}>
                 <img 
                     src={images.logo}
                     alt="Tiktok"
                 > 
                 </img>
-            </div>
+            </Link>
             <Search />
             <div className={cx('action')}>
                 {currentUser ? (

@@ -1,5 +1,5 @@
 import classNames from "classnames/bind";
-
+import { Link } from "react-router-dom";
 import { BiAngry } from 'react-icons/bi';
 import Images from '~/components/Images';
 import styles from './Accountitem.module.scss';
@@ -7,10 +7,9 @@ import styles from './Accountitem.module.scss';
 const cx = classNames.bind(styles);
 
 function Accountitem ({data}) {
-    console.log(data);
 
     return (
-        <div className={cx('wrapper')}>
+        <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
             <Images 
             className={cx('avatar')} 
             src={data.avatar}
@@ -24,7 +23,7 @@ function Accountitem ({data}) {
                 </h4>
                 <span className={cx('username')}>{data.nickname}</span>
             </div>
-        </div>
+        </Link>
     );
 
 }

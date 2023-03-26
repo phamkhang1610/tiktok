@@ -4,7 +4,7 @@ import { useState, useEffect  } from 'react';
 import classNames from 'classnames/bind';
 import { Wrapper as PopperWrapper } from '~/components/Layout/Popper';
 import Accountitem from '~/components/Accountitem';
-import { BiXCircle, BiSearch } from "react-icons/bi";
+import { BiXCircle, BiSearch, BiLoader } from "react-icons/bi";
 import HeadlessTippy from '@tippyjs/react/headless';
 import styles from './Search.module.scss';
 import { useRef } from 'react';
@@ -16,21 +16,24 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
+    const [loadding, setLoading] = useState(false);
     const inputRef = useRef();
 
     useEffect(() => {
-        // setTimeout(() => {
-        //     setSearchResult([1,2,3]);
-        // }, 0)
-        if(!searchValue) {
+        if(!searchValue.trim()) {
+            setSearchResult([]);
             return;
         }
-        fetch(' https://tiktok.fullstack.edu.vn/api/users/search?q=h&type=less')
+        setLoading(true);
+        fetch(` https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)// encodeURIComponent để nhập các ký tự đặc biệt thì ko bị lỗi
             .then(res => res.json())
             .then(res => {
                 setSearchResult(res.data);
-                //console.log(res.data);
+                setLoading(false); //sau khi load song api
             })  
+            .catch(() => {
+                setLoading(false)
+            })
     },[searchValue]);
 
 
@@ -60,9 +63,7 @@ function Search() {
                             //     );
                             //  }
                             )}  
-                            {/* <Accountitem/>
-                            <Accountitem/>
-                            <Accountitem/> */}
+                           
                         </PopperWrapper>
                     </div>                  
                 )}
@@ -78,7 +79,7 @@ function Search() {
                        onFocus =  {() => setShowResult(true)}
                     >
                     </input>
-                    {!!searchValue && (
+                    {!!searchValue && !loadding && (
                         <button 
                             className={cx('clear')}
                             onClick = {handleClear} 
@@ -86,7 +87,7 @@ function Search() {
                             <BiXCircle />
                         </button>
                     )}
-                    {/* <BiLoader className={cx('loading')}/> */}
+                    {loadding && <BiLoader className={cx('loading')}/>}
                     <button className={cx('search-btn')}>
                         <BiSearch />
                     </button>
