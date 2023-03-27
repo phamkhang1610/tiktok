@@ -7,7 +7,8 @@
 .container {
     width: var(--default-layout-width);
     display: flex;// các element trong đó hiện theo chiều ngang từ trái sang phải
-
+    margin-top: var(--default-layout-height);
+    
 }
 .content {
     flex: 1;

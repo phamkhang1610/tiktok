@@ -13,6 +13,7 @@ import 'tippy.js/dist/tippy.css';
 
 
 // Thư viện rong src
+import config from '~/config';
 import styles from './Header.module.scss';
 import Button from '~/components/Button';
 import images from '~/assets/images';
@@ -29,6 +30,42 @@ const MENU_ITEM =[
         children: {
             title: 'Language',
             data: [
+                {
+                    code:'en',
+                    title:'English'
+                }, 
+                {
+                    code:'vi',
+                    title:'Tiếng Việt'
+                },
+                {
+                    code:'ch',
+                    title:'China'
+                },
+                {
+                    code:'en',
+                    title:'English'
+                }, 
+                {
+                    code:'vi',
+                    title:'Tiếng Việt'
+                },
+                {
+                    code:'ch',
+                    title:'China'
+                },
+                {
+                    code:'en',
+                    title:'English'
+                }, 
+                {
+                    code:'vi',
+                    title:'Tiếng Việt'
+                },
+                {
+                    code:'ch',
+                    title:'China'
+                },
                 {
                     code:'en',
                     title:'English'
@@ -96,7 +133,7 @@ function Header() {
 
     return ( <header className= {cx('wrapper')}> 
         <div className={cx('inner')}>
-            <Link to = {'/'} className={cx('logo')}>
+            <Link to = {config.routes.home} className={cx('logo')}>
                 <img 
                     src={images.logo}
                     alt="Tiktok"

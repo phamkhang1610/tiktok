@@ -49,9 +49,17 @@ function Search() {
     const handleHideResult = () => {
         setShowResult(false)
     };
+    const handleChange = (e) =>{
+        const searchValue = e.target.value;
+        if(!searchValue.startsWith(' ')) {//fix lỗi tìm kiếm có dấu cách.
+            setSearchValue(searchValue);
+        }
+    }
     return (
-        <HeadlessTippy 
+        <div> 
+            <HeadlessTippy 
                 interactive // dùng để cho có thể tương tác.
+                
                 visible = { showResult && searchResult.length > 0}
                 render={(attrs) =>(
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
@@ -71,14 +79,14 @@ function Search() {
                     </div>                  
                 )}
                 onClickOutside = {handleHideResult}
-        >
+            >
                 <div className={cx('search')}>
                     <input
                        ref = {inputRef} 
                        value={searchValue}
                        placeholder='Seacher account and video' 
                        spellCheck={false} 
-                       onChange={(e) => setSearchValue(e.target.value)}
+                       onChange={handleChange}
                        onFocus =  {() => setShowResult(true)}
                     >
                     </input>
@@ -97,6 +105,7 @@ function Search() {
 
                 </div>
             </HeadlessTippy>
+        </div>
     );
 }
 
