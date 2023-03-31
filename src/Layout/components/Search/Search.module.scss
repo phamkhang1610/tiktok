@@ -1,6 +1,5 @@
-
-
-.search, .search-result {
+.search,
+.search-result {
     width: 361px;
 }
 
@@ -10,8 +9,8 @@
     height: var(--search-height);
     padding-left: 16px;
     display: flex;
-    background-color:  rgba(22, 24, 35, 0.06);
-    border-radius: var(--search-boder-radius);// làm vòng cung của ô search
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: var(--search-boder-radius); // làm vòng cung của ô search
     border: 1.5px solid transparent;
     font-family: var(--font-family);
 
@@ -24,23 +23,26 @@
         caret-color: var(--primary);
         background-color: transparent;
         font-family: var(--font-family);
+        padding-right: 40px; // khi tìm kiếm dài thì sẽ ko bị che
     }
-// Khi có chữ trong inputs icon search cho màu đậm hơn
+    // Khi có chữ trong inputs icon search cho màu đậm hơn
     input:not(:placeholder-shown) ~ .search-btn {
         color: rgba(22, 24, 35, 0.75);
     }
 
-    &::after { // thanh dọc giũa search và icon
+    &::after {
+        // thanh dọc giũa search và icon
         content: '';
         position: absolute;
         top: var(--search-top-spacer);
-        right:52px;
+        right: 52px;
         width: 1px;
         height: calc(var(--search-height) - var(--search-top-spacer) * 2);
         background-color: rgba(22, 24, 35, 0.12);
     }
 
-    &:focus-within {// tạo boder khi kick vô
+    &:focus-within {
+        // tạo boder khi kick vô
         border-color: rgba(22, 24, 35, 0.2);
     }
 }
@@ -71,22 +73,23 @@
     }
 }
 .search-btn {
-   width: 52px;
-   height: 100%;
-   border-top-right-radius: var(--search-boder-radius);
-   border-bottom-right-radius: var(--search-boder-radius);
-   font-size: 1.8rem;// kích cỡ nội dung trong
-   justify-content: center;
-   align-items: center;
-   color: rgba(22, 24, 35, 0.34);
-   display: flex;
+    width: 52px;
+    height: 100%;
+    border-top-right-radius: var(--search-boder-radius);
+    border-bottom-right-radius: var(--search-boder-radius);
+    font-size: 1.8rem; // kích cỡ nội dung trong
+    justify-content: center;
+    align-items: center;
+    color: rgba(22, 24, 35, 0.34);
+    display: flex;
 
-
-   &:hover {// khi trỏ vào ô tìm kiếm thì dổi màu
-    cursor: pointer;//đổi trỏ chuột
-    background-color: rgba(22, 24, 35, 0.03);
-   }
-   &:active {//khi kick vào thì đổi màu 
-    background-color: rgba(22, 24, 35, 0.06);
-}
+    &:hover {
+        // khi trỏ vào ô tìm kiếm thì dổi màu
+        cursor: pointer; //đổi trỏ chuột
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+    &:active {
+        //khi kick vào thì đổi màu
+        background-color: rgba(22, 24, 35, 0.06);
+    }
 }

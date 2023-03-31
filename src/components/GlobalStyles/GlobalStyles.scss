@@ -2,11 +2,10 @@
 @import url(https://fonts.google.com/specimen/IBM+Plex+Sans?query=ibm+);
 
 :root {
-    --primary:#fe2c55; 
+    --primary: #fe2c55;
     --black: black;
-    --text-color:#333;
+    --text-color: #333;
     --white: white;
-    
 
     --font-family: 'ProximaNova', sans-serif;
 
@@ -52,7 +51,7 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
-    overflow-y: overlay;// bo thanh cuộn của trang
+    overflow-y: overlay; // bo thanh cuộn của trang
 }
 // Scrollbar CSS
 html *::-webkit-scrollbar {
@@ -70,11 +69,13 @@ html *::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0);
 }
 
-button, input, [tabindex] {
+button,
+input,
+[tabindex] {
     outline: none;
-    border: none;//bỏ bo viền
+    border: none; //bỏ bo viền
 }
-a[href] {
+a {
     color: var(--text-color);
     text-decoration: none; //bỏ gạch chân
 }
