@@ -119,7 +119,7 @@ const userMenu = [
     },
 ];
 
-const currentUser = false;
+const currentUser = true;
 
 function Header() {
     const handleMenuChange = (menuItem) => {
